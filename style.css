@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 600px;
+    height: 600px;
+    border: 1px solid black;
+}
+
+.pixel {
+    user-select: none;
+}
+
+.pixel:hover {
+    background-color: black;
+}
+
+.black {
+    background-color: black;
+}
