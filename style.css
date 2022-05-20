@@ -5,6 +5,7 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    font-family: sans-serif;
 }
 
 main {
@@ -31,6 +32,64 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 12px;
+}
+
+
+
+button {
+    background-color: rgb(249, 249, 249);
+    border-radius: 3px;
+    border: 1px solid rgb(87, 87, 87);
+    padding: 8px;
+}
+
+button:hover {
+    background-color: #ff9437;
+    color: white;
+}
+
+button.active {
+    background-color: #ff9437;
+    color: white;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 18px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 18px; /* Set a specific slider handle width */
+    height: 18px; /* Slider handle height */
+    background: #ff9437; /* Green background */
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 18px; /* Set a specific slider handle width */
+    height: 18px; /* Slider handle height */
+    background: #ff9437; /* Green background */ 
+  }
+
+input[type="color"] {
+-webkit-appearance: none;
+border: none;
+width: 45px;
+height: 45px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: 1px solid black;
+    border-radius: 3px;
+
 }
 
 header {

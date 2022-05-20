@@ -1,2 +1,10 @@
 # odin-etch-a-sketch
-16-grid paint-it-black click&drag etch-a-sketch
+
+Create pixel art
+
+- Color chooser
+- Random color chooser
+- Rainbow mode
+- Eraser mode
+- Reset
+- Grid size customization

@@ -26,18 +26,38 @@ const reset = document.getElementById('resetGrid');
 const colorPicker = document.getElementById('colorPicker');
 const rainbowBtn = document.getElementById('rainbow');
 const randomBtn = document.getElementById('random');
-
+const eraserBtn = document.getElementById('eraser');
 
 colorPicker.onchange = (e) => {
     setCurentColor(e.target.value);
     setCurrentMode(`color`);
+    buttonToggle();
 }
 randomBtn.onclick = () => {
     setCurentColor(randomColor());
     setCurrentMode(`color`);
+    buttonToggle();
     colorPicker.value = currentColor;
 }
-rainbowBtn.onclick = () => setCurrentMode(`rainbow`);
+rainbowBtn.onclick = () => {
+    setCurrentMode(`rainbow`);
+    buttonToggle();
+}
+eraserBtn.onclick = () => {
+    setCurrentMode('eraser');
+    buttonToggle();
+    setCurentColor(`#ffffff`);
+    colorPicker.value = currentColor;
+}
+
+function buttonToggle() {
+    rainbowBtn.classList.remove('active');
+    eraserBtn.classList.remove('active');
+
+    if (currentMode === `rainbow`) rainbowBtn.classList.add('active');
+    else if (currentMode === `eraser`) eraserBtn.classList.add('active');
+}
+
 sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
 reset.onclick = () => resetGrid();
@@ -76,14 +96,17 @@ function updateSizeValue(value) {
     sizeValue.innerHTML = `${value} x ${value}`;
 }
 
-
 function paintIt(e) {
     if (e.type === 'mouseover' && !isClicked) return;
     if (currentMode === `rainbow`) {
         setCurentColor(randomColor());
+        colorPicker.value = currentColor;
         e.target.style.backgroundColor = currentColor;
     }
     if (currentMode === `color`) {
+        e.target.style.backgroundColor = currentColor;
+    }
+    if (currentMode === `eraser`) {
         e.target.style.backgroundColor = currentColor;
     }
 }
@@ -93,7 +116,6 @@ function randomColor() {
     let g = Math.floor(Math.random() * 255);
     let b = Math.floor(Math.random() * 255);
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-    
 }
 
 function componentToHex(c) {
